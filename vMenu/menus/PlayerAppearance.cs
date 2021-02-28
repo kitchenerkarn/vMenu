@@ -70,7 +70,7 @@ namespace vMenuClient
             MenuItem spawnPedsBtn = new MenuItem("Spawn Peds", "Change ped model by selecting one from the list or by selecting an addon ped from the list.") { Label = "→→→" };
 
             MenuItem notSure = new MenuItem("Not Sure", "")
-            eupOptions.AddMenuItem(notSure)
+            eupOptionsMenu.AddMenuItem(notSure)
 
             MenuItem spawnByNameBtn = new MenuItem("Spawn By Name", "Spawn a ped by entering it's name manually.");
             MenuItem addonPedsBtn = new MenuItem("Addon Peds", "Spawn a ped from the addon peds list.") { Label = "→→→" };
