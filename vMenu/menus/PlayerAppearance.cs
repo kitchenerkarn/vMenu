@@ -42,7 +42,7 @@ namespace vMenuClient
         private void CreateMenu()
         {
             // Create the menu.
-            menu = new Menu(Game.Player.Name, "Player Appearance");
+            menu = new Menu(Game.Player.Name, "Player a");
             savedPedsMenu = new Menu(Game.Player.Name, "Saved Peds");
             pedCustomizationMenu = new Menu(Game.Player.Name, "Customize Saved Ped");
             eupOptionsMenu = new Menu(Game.Player.Name, "EUP Options");
