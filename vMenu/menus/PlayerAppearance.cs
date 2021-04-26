@@ -18,7 +18,6 @@ namespace vMenuClient
         private Menu menu;
 
         private Menu pedCustomizationMenu;
-        private Menu eupOptionsMenu;
         private Menu savedPedsMenu;
         private Menu spawnPedsMenu;
         private Menu addonPedsMenu;
@@ -42,17 +41,15 @@ namespace vMenuClient
         private void CreateMenu()
         {
             // Create the menu.
-            menu = new Menu(Game.Player.Name, "Player a");
+            menu = new Menu(Game.Player.Name, "Player Appearance");
             savedPedsMenu = new Menu(Game.Player.Name, "Saved Peds");
             pedCustomizationMenu = new Menu(Game.Player.Name, "Customize Saved Ped");
-            eupOptionsMenu = new Menu(Game.Player.Name, "EUP Options");
             spawnPedsMenu = new Menu(Game.Player.Name, "Spawn Ped");
             addonPedsMenu = new Menu(Game.Player.Name, "Addon Peds");
 
 
             // Add the (submenus) to the menu pool.
             MenuController.AddSubmenu(menu, pedCustomizationMenu);
-            MenuController.AddSubmenu(menu, eupOptionsMenu);
             MenuController.AddSubmenu(menu, savedPedsMenu);
             MenuController.AddSubmenu(menu, spawnPedsMenu);
             MenuController.AddSubmenu(spawnPedsMenu, addonPedsMenu);
@@ -64,10 +61,10 @@ namespace vMenuClient
 
             // Create the menu items.
             MenuItem pedCustomization = new MenuItem("Ped Customization", "Modify your ped's appearance.") { Label = "→→→" };
-            MenuItem eupOptions = new MenuItem("EUP Options", "Modify your ped's appearance.") { Label = "→→→" };
             MenuItem saveCurrentPed = new MenuItem("Save Ped", "Save your current ped. Note for the MP Male/Female peds this won't save most of their customization, just because that's impossible. Create those characters in the MP Character creator instead.");
             MenuItem savedPedsBtn = new MenuItem("Saved Peds", "Edit, rename, clone, spawn or delete saved peds.") { Label = "→→→" };
             MenuItem spawnPedsBtn = new MenuItem("Spawn Peds", "Change ped model by selecting one from the list or by selecting an addon ped from the list.") { Label = "→→→" };
+
 
             MenuItem spawnByNameBtn = new MenuItem("Spawn By Name", "Spawn a ped by entering it's name manually.");
             MenuItem addonPedsBtn = new MenuItem("Addon Peds", "Spawn a ped from the addon peds list.") { Label = "→→→" };
@@ -86,17 +83,12 @@ namespace vMenuClient
 
             // Add items to the menu.
             menu.AddMenuItem(pedCustomization);
-            menu.AddMenuItem(eupOptions);
             menu.AddMenuItem(saveCurrentPed);
             menu.AddMenuItem(savedPedsBtn);
             menu.AddMenuItem(spawnPedsBtn);
 
             menu.AddMenuItem(walkingStyle);
             menu.AddMenuItem(clothingGlowType);
-
-            MenuItem eupItem = new MenuItem("Item", "Description.");
-            eupOptionsMenu.AddMenuItem(eupItem);
-
 
             if (IsAllowed(Permission.PACustomize))
             {
