@@ -69,8 +69,6 @@ namespace vMenuClient
             MenuItem savedPedsBtn = new MenuItem("Saved Peds", "Edit, rename, clone, spawn or delete saved peds.") { Label = "→→→" };
             MenuItem spawnPedsBtn = new MenuItem("Spawn Peds", "Change ped model by selecting one from the list or by selecting an addon ped from the list.") { Label = "→→→" };
 
-            MenuItem eupBtn = new MenuItem("Spawn By Name", "Spawn a ped by entering it's name manually.");
-
             MenuItem spawnByNameBtn = new MenuItem("Spawn By Name", "Spawn a ped by entering it's name manually.");
             MenuItem addonPedsBtn = new MenuItem("Addon Peds", "Spawn a ped from the addon peds list.") { Label = "→→→" };
             MenuItem mainPedsBtn = new MenuItem("Main Peds", "Select a new ped from the main player-peds list.") { Label = "→→→" };
@@ -96,7 +94,9 @@ namespace vMenuClient
             menu.AddMenuItem(walkingStyle);
             menu.AddMenuItem(clothingGlowType);
 
-            eupOptionsMenu.AddMenuItem(eupBtn);
+            MenuItem eupItem = new MenuItem("Item", "Description.");
+            eupOptionsMenu.AddMenuItem(eupItem);
+
 
             if (IsAllowed(Permission.PACustomize))
             {
