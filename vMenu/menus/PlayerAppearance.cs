@@ -21,6 +21,7 @@ namespace vMenuClient
         private Menu savedPedsMenu;
         private Menu spawnPedsMenu;
         private Menu addonPedsMenu;
+        private Menu eupOptions;
         private Menu mainPedsMenu = new Menu("Main Peds", "Spawn A Ped");
         private Menu animalsPedsMenu = new Menu("Animals", "Spawn A Ped");
         private Menu malePedsMenu = new Menu("Male Peds", "Spawn A Ped");
@@ -42,6 +43,7 @@ namespace vMenuClient
         {
             // Create the menu.
             menu = new Menu(Game.Player.Name, "Player Appearance");
+            eupOptions = new Menu(Game.Player.Name, "EUP Options");
             savedPedsMenu = new Menu(Game.Player.Name, "Saved Peds");
             pedCustomizationMenu = new Menu(Game.Player.Name, "Customize Saved Ped");
             spawnPedsMenu = new Menu(Game.Player.Name, "Spawn Ped");
@@ -50,6 +52,7 @@ namespace vMenuClient
 
             // Add the (submenus) to the menu pool.
             MenuController.AddSubmenu(menu, pedCustomizationMenu);
+            MenuController.AddSubmenu(menu, eupOptions);
             MenuController.AddSubmenu(menu, savedPedsMenu);
             MenuController.AddSubmenu(menu, spawnPedsMenu);
             MenuController.AddSubmenu(spawnPedsMenu, addonPedsMenu);
@@ -81,6 +84,8 @@ namespace vMenuClient
             List<string> clothingGlowAnimations = new List<string>() { "On", "Off", "Fade", "Flash" };
             MenuListItem clothingGlowType = new MenuListItem("Illuminated Clothing Style", clothingGlowAnimations, ClothingAnimationType, "Set the style of the animation used on your player's illuminated clothing items.");
 
+            MenuItem saveUniform = new MenuItem("Save Uniform", "Save Uniform to saved menu.");
+            
             // Add items to the menu.
             menu.AddMenuItem(pedCustomization);
             menu.AddMenuItem(saveCurrentPed);
@@ -89,6 +94,8 @@ namespace vMenuClient
 
             menu.AddMenuItem(walkingStyle);
             menu.AddMenuItem(clothingGlowType);
+
+            eupOptions.AddMenuItem(saveUniform);
 
             if (IsAllowed(Permission.PACustomize))
             {
